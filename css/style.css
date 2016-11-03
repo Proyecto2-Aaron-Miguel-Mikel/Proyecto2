@@ -29,11 +29,25 @@ body{
     border-radius: 8px 8px 8px 8px;
     font-family: cambria;
 }
+/*Caja de error*/
+.login_failed {
+    margin-left: 37%;
+    width: 20%;
+    background-color: #f64545;
+    position: relative;
+    border-color: black;
+    border: 1px;
+    text-align: center;
+    font-size: 1.5em;
+    border: 1px solid #ccc;    
+    border-radius: 8px 8px 8px 8px;
+    font-family: cambria;
+}
 .name {
-    width: 90%;
+    width: 75%;
 }
 .pass{
-    width: 90%;
+    width: 75%;
 }
 .send {
     font-weight: bold;

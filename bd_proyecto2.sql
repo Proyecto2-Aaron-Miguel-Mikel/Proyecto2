@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2016 a las 17:21:44
+-- Tiempo de generación: 03-11-2016 a las 17:35:59
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.6
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd_proyecto2`
 --
+CREATE DATABASE IF NOT EXISTS `bd_proyecto2` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish2_ci;
+USE `bd_proyecto2`;
 
 -- --------------------------------------------------------
 
@@ -32,6 +34,14 @@ CREATE TABLE `tbl_incidencia` (
   `inc_recursoid` int(2) NOT NULL,
   `inc_tipinc` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_incidencia`:
+--   `inc_recursoid`
+--       `tbl_recurso` -> `rec_id`
+--   `inc_tipinc`
+--       `tbl_tipoinc` -> `ti_id`
+--
 
 -- --------------------------------------------------------
 
@@ -47,6 +57,12 @@ CREATE TABLE `tbl_recurso` (
   `rec_tipoid` int(2) NOT NULL,
   `rec_estado` varchar(15) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_recurso`:
+--   `rec_tipoid`
+--       `tbl_tiporecurso` -> `tr_id`
+--
 
 --
 -- Volcado de datos para la tabla `tbl_recurso`
@@ -84,6 +100,14 @@ CREATE TABLE `tbl_reserva` (
   `res_usuarioid` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- RELACIONES PARA LA TABLA `tbl_reserva`:
+--   `res_recursoid`
+--       `tbl_recurso` -> `rec_id`
+--   `res_usuarioid`
+--       `tbl_usuario` -> `usu_id`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -94,6 +118,10 @@ CREATE TABLE `tbl_tipoinc` (
   `ti_id` int(2) NOT NULL,
   `ti_nombre` varchar(30) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_tipoinc`:
+--
 
 --
 -- Volcado de datos para la tabla `tbl_tipoinc`
@@ -115,6 +143,10 @@ CREATE TABLE `tbl_tiporecurso` (
   `tr_id` int(2) NOT NULL,
   `tr_nombre` varchar(30) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_tiporecurso`:
+--
 
 --
 -- Volcado de datos para la tabla `tbl_tiporecurso`
@@ -146,6 +178,10 @@ CREATE TABLE `tbl_usuario` (
   `usu_foto` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `usu_contrasena` varchar(15) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- RELACIONES PARA LA TABLA `tbl_usuario`:
+--
 
 --
 -- Volcado de datos para la tabla `tbl_usuario`

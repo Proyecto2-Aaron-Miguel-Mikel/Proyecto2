@@ -44,13 +44,36 @@
 		</nav>
 		<div class="container">
 			<p class="reserved"> Tus recursos reservados són:</p> <br/>
+			
+				
+			</div>
 			<?php
+				//Seleccionamos todas las reservas que tiene asignado nuestro usuario
 				$con 	=	"SELECT * FROM `tbl_reserva` WHERE `res_usuarioid` = " . $_SESSION["usu_id"] . "";
 				$result 	=	mysqli_query($mysqli,$con);
 				while($fila	=	mysqli_fetch_row($result)){
+					//Extraemos los ID de los recursos
 					echo $fila[3] . "<br/>";
-					$con2	=	"SELECT * FROM `tbl_recurso` WHERE `rec_id` = ".$fila[3];
-					echo $con2 . "<br/>";
+						//Seleccionamos los recursos correspodientes a las reservas del usuario
+						$con_rec	=	"SELECT * FROM `tbl_recurso` WHERE `rec_id` = ".$fila[3];
+						$result_rec 	=	mysqli_query($mysqli,$con_rec);
+						echo "<div class='content_rec'>";
+							while($fila_rec	=	mysqli_fetch_row($result_rec)){
+								echo "<table>";
+									echo "<tr>";
+										echo "<td colspan='2'>" . $fila_rec[1] . "</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td><img class='img_recu' src='../img/".$fila_rec[2]."'></td>";
+										echo "<td>".$fila_rec[3]."</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td colspan='2'> <a class='free_recu' href='#''>LIBERAR RECURSO </a></td>";
+									echo "</tr>";
+								echo "</table>";
+							}
+						echo "</div>";
+					
 				}
 
 			?>

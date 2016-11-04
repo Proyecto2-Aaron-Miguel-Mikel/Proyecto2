@@ -21,7 +21,7 @@ if ($mysqli->connect_errno) {
 			//Asignamos la variable de session "usu_id" al ID del usuario
 			$_SESSION['usu_id']	=	$fila[0];
 			//Redireccionamos
-			header("location:prueba.php");
+			header("location:misrecursos.php");
 		}
 	}
 	//Si no nos devuelve registros significa que el usuario o contraseña han sido incorrectos.

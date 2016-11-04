@@ -4,6 +4,19 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="../css/recursos.css">
 		<title>Recursos</title>
+		<script type="text/javascript">
+		function destroy(){
+			var respuesta = confirm("¿Está seguro que desea liberar este recurso?");
+			if(respuesta){
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+		}
+			
+		</script>
 	</head>
 	<body>
 	<?php
@@ -53,22 +66,28 @@
 				$result 	=	mysqli_query($mysqli,$con);
 				while($fila	=	mysqli_fetch_row($result)){
 					//Extraemos los ID de los recursos
-					echo $fila[3] . "<br/>";
+					//echo $fila[3] . "<br/>";
 						//Seleccionamos los recursos correspodientes a las reservas del usuario
 						$con_rec	=	"SELECT * FROM `tbl_recurso` WHERE `rec_id` = ".$fila[3];
 						$result_rec 	=	mysqli_query($mysqli,$con_rec);
 						echo "<div class='content_rec'>";
 							while($fila_rec	=	mysqli_fetch_row($result_rec)){
-								echo "<table>";
+								echo "<table border>";
 									echo "<tr>";
 										echo "<td colspan='2'>" . $fila_rec[1] . "</td>";
 									echo "</tr>";
 									echo "<tr>";
-										echo "<td><img class='img_recu' src='../img/".$fila_rec[2]."'></td>";
+										echo "<td rowspan='3'><img class='img_recu' src='../img/".$fila_rec[2]."'></td>";
 										echo "<td>".$fila_rec[3]."</td>";
 									echo "</tr>";
 									echo "<tr>";
-										echo "<td colspan='2'> <a class='free_recu' href='#''>LIBERAR RECURSO </a></td>";
+										echo "<td>Fecha de inicio: " . date("d-m-Y",strtotime($fila[1])) . "</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td>Fecha de Final: ".date("d-m-Y",strtotime($fila[1]))."</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td colspan='2'> <a class='free_recu' href='liberar.php?id=".$fila_rec[0]."'onclick='return destroy();'>LIBERAR RECURSO </a></td>";
 									echo "</tr>";
 								echo "</table>";
 							}

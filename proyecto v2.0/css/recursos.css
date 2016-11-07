@@ -60,7 +60,11 @@ nav ul.topnav li a {
 /* Change background color of links on hover */
 nav ul.topnav li a:hover {background-color: #555; color: white;}
 
-
+/* BOTON LOGOUT */
+.img_logout{
+      width: 2%;
+       margin-left: 70%
+}
 /*APARTADO MIS RECURSOS*/
 
 .content_rec{
@@ -68,7 +72,7 @@ nav ul.topnav li a:hover {background-color: #555; color: white;}
     margin-bottom: 2%;
     text-align:center;
     width: 75%;
-    background-color:gray;
+    background-color:#A9A9A9;
     margin-left: 10%;
 }
 .content_rec table{

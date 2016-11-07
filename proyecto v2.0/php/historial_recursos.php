@@ -36,10 +36,10 @@
 
 		if(isset($enviar)){
 		 	if($tr_id>0){
-		 		$disponible .= " AND rec_tipoid='$tr_id '";
-		 		$ocupado .= " AND rec_tipoid='$tr_id' ";
+		 		$finalizado_sql .= " AND rec_tipoid='$tr_id '";
 		 	}
 		}
+		$finalizado_sql .= "ORDER BY `tbl_reserva`.`res_id`  DESC";
 
 		$finalizados = mysqli_query($conexion, $finalizado_sql);
 		$tipos = mysqli_query($conexion, $sql);
@@ -91,11 +91,31 @@ Tipo de recurso:
 <br/>
 <?php
 	if(mysqli_num_rows($finalizados)>0){
-		while($finalizado=mysqli_fetch_array($finalizados)){
-					echo "Nombre: " .$finalizado['rec_nombre']. "<br/>" ;
-					echo "Descripcion: " .$finalizado['rec_descripcion']. "<br/>" ;
-					echo "Estado: " .$finalizado['rec_estado']. "<br/>" ;
-					echo "<hr/>";
+		
+							while($finalizado=mysqli_fetch_array($finalizados)){
+								echo "<div class='content_rec'>";
+									//echo $fila[0]
+								echo "<table border>";
+									echo "<tr>";
+										echo "<td colspan='2'>" . $finalizado['rec_nombre'] . "</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td rowspan='3'><img class='img_recu' src='../img/recursos/".$finalizado['rec_foto']."' width='100'></td>";
+										echo "<td>".$finalizado['rec_descripcion']."</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td>Fecha de inicio: " .$finalizado['res_fechainicio']. "</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td>Fecha liberación: " .$finalizado['res_fechafinal']. "</td>";
+										
+										echo "</tr>"; 
+										
+													
+								echo "</table>";
+								echo "</div>";
+								echo "</br>";
+
 				} 
 			} 
 		} else {

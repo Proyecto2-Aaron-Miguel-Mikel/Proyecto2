@@ -95,14 +95,35 @@ if(mysqli_num_rows($tipos)>0){
 <?php
 	}
 	if(mysqli_num_rows($recursos)>0){
-		while($recurso=mysqli_fetch_array($recursos)){
-					echo "Nombre: " .$recurso['rec_nombre']. "<br/>" ;
-					echo "Descripcion: " .$recurso['rec_descripcion']. "<br/>" ;
-					echo "Estado: " .$recurso['rec_estado']. "<br/><br/>";
-					echo "<a href='recursos.proc.php?rec_id=" .$recurso['rec_id']. "'>Reservar</a>";
-					echo "<br/>";
-					echo "<hr/>";
-			} 
+		
+							while($recurso	=	mysqli_fetch_array($recursos)){
+								echo "<div class='content_rec'>";
+									//echo $fila[0]
+								echo "<table border>";
+									echo "<tr>";
+										echo "<td colspan='2'>" . $recurso['rec_nombre'] . "</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td rowspan='3'><img class='img_recu' src='../img/recursos/".$recurso['rec_foto']."' width='100'></td>";
+										echo "<td>".$recurso['rec_descripcion']."</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td>Estado: " .$recurso['rec_estado']. "</td>";
+									echo "</tr>";
+									echo "<tr>";
+													
+											echo "<td colspan='2'> <a href='recursos.proc.php?rec_id=".$recurso['rec_id']."'>RESERVAR RECURSO </a></td>";
+										
+										echo "</tr>"; 
+										
+													
+								echo "</table>";
+								echo "</div>";
+								echo "</br>";
+ 
+
+							}
+
 		} else {
 			echo "No hay recursos disponibles";
 		}
@@ -114,14 +135,33 @@ if(mysqli_num_rows($tipos)>0){
 <br/>
 <?php
 	if(mysqli_num_rows($recursos1)>0){
-		while($recurso1=mysqli_fetch_array($recursos1)){
-					echo "Nombre: " .$recurso1['rec_nombre']. "<br/>" ;
-					echo "Descripcion: " .$recurso1['rec_descripcion']. "<br/>" ;
-					echo "Estado: " .$recurso1['rec_estado']. "<br/>" ;
-					echo "<hr/>";
-			} 
+		
+							while($recurso1	=	mysqli_fetch_array($recursos1)){
+								echo "<div class='content_rec'>";
+									//echo $fila[0]
+								echo "<table border>";
+									echo "<tr>";
+										echo "<td colspan='2'>" . $recurso1['rec_nombre'] . "</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td rowspan='3'><img class='img_recu' src='../img/recursos/".$recurso1['rec_foto']."' width='100'></td>";
+										echo "<td>".$recurso1['rec_descripcion']."</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td>Estado: " .$recurso1['rec_estado']. "</td>";
+									echo "</tr>";
+									
+										//echo $fila[2];
+													
+								echo "</table>";
+								echo "</div>";
+								echo "</br>";
+ 
+
+							}
+
 		} else {
-			echo "No hay recursos en uso";
+			echo "No hay recursos disponibles";
 		}
 
 	?>

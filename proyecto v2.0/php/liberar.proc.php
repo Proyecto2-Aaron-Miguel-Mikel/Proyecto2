@@ -6,9 +6,9 @@
 	//echo $id_res;
 	//echo $_GET['id'];
 	//Cogemos la fecha actual en formato americano
-	$fdate	= date("Y")."/".date("m")."/".date("d");
+	$fdate	= date("Y-m-d H:i:s");
 	//echo $fdate;
-	$mysqli = new mysqli("localhost", "root", "", "bd_mamproyecto2");
+	$mysqli = new mysqli("localhost", "root", "", "bd_proyecto2");
 	$con_recu	=	"UPDATE `tbl_recurso` SET `rec_estado` = 'Disponible' WHERE `tbl_recurso`.`rec_id` = ".$id_recu.";";
 	$con_resu	=	"UPDATE `tbl_reserva` SET `res_fechafinal` = '".$fdate."' WHERE `tbl_reserva`.`res_id` =" . $id_res;
 	//echo "<br/>" . $con_resu;

@@ -5,7 +5,8 @@
 		<link rel="stylesheet" type="text/css" href="../css/recursos.css">
 		<title>Recursos</title>
 		<script type="text/javascript">
-		function destroy(){
+		function destroy()
+		{
 			var respuesta = confirm("¿Está seguro que desea liberar este recurso?");
 			if(respuesta){
 				return true;
@@ -14,8 +15,18 @@
 				return false;
 			}
 			
-		}
 			
+		}
+		function logout()
+		{
+			var login_respuesta = confirm("¿Está seguro que desea cerrar la sesión?");
+			if(login_respuesta){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
 		</script>
 	</head>
 	<body>
@@ -42,7 +53,14 @@
 			</div>
 			<div class="profile">
 			<p class="welcome">Hola bienvenido, <br /><b>
-			<?php echo $usu_nickname; ?></b></p>
+			<?php echo $usu_nickname; ?></b><br/>
+			
+				
+				<div class="logout">
+					<a href="logout.proc.php" onclick="return logout();"><img class="img_logout" src="../img/logout_small.png" alt="Cerrar sesión">
+					</a>
+				</div>
+			</p>
 			</div>
 			
 			<h1>Reserva tus recursos</h1>

@@ -72,9 +72,10 @@
 						$result_rec 	=	mysqli_query($mysqli,$con_rec);
 						echo "<div class='content_rec'>";
 							while($fila_rec	=	mysqli_fetch_row($result_rec)){
+									//echo $fila[0]
 								echo "<table border>";
 									echo "<tr>";
-										echo "<td colspan='2'>" . $fila_rec[1] . "</td>";
+										echo "<td colspan='2'>" . $fila[0] . "----" . $fila_rec[1] . "</td>";
 									echo "</tr>";
 									echo "<tr>";
 										echo "<td rowspan='3'><img class='img_recu' src='../img/".$fila_rec[2]."'></td>";
@@ -84,11 +85,25 @@
 										echo "<td>Fecha de inicio: " . date("d-m-Y",strtotime($fila[1])) . "</td>";
 									echo "</tr>";
 									echo "<tr>";
-										echo "<td>Fecha de Final: ".date("d-m-Y",strtotime($fila[1]))."</td>";
+										if(isset($fila[2])){
+										echo "<td>Fecha de Final: ".date("d-m-Y",strtotime($fila[2]))."</td>";
+									}
+									else{
+										echo "<td>En curso</td>";
+									}
 									echo "</tr>";
+										//echo $fila[2];
 									echo "<tr>";
-										echo "<td colspan='2'> <a class='free_recu' href='liberar.php?id=".$fila_rec[0]."'onclick='return destroy();'>LIBERAR RECURSO </a></td>";
-									echo "</tr>";
+										if(isset($fila[2])){
+											
+											//	echo "<td colspan='2'> <a class='free_recu' href='liberar.php?id=".$fila_rec[0]."'onclick='return destroy();'>LIBERAR RECURSO </a></td>";
+											echo "<td colspan='2'>Reserva finalizada</td>";
+											
+										}
+										else{
+											echo "<td colspan='2'> <a class='free_recu' href='liberar.pro.php?recu_id=".$fila_rec[0]."&res_id=".$fila[0]."'onclick='return destroy();'>LIBERAR RECURSO </a></td>";
+										}
+										echo "</tr>";
 								echo "</table>";
 							}
 						echo "</div>";

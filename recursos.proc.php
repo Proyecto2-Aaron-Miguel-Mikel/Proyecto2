@@ -14,12 +14,17 @@
 		}
 
 		extract($_REQUEST);
+		session_start();
+
+		$usuario = $_SESSION['usu_id'];
+		$fecha_ini = date("Y-m-d H:i:s");
 
 		$sql = "UPDATE tbl_recurso SET rec_estado='ocupado' WHERE rec_id='$rec_id'";
 
-		echo $sql;
+		$insertar_reserva = "INSERT INTO tbl_reserva (res_fechainicio, res_fechafinal, res_recursoid, res_usuarioid) VALUES ('$fecha_ini', NULL, '$rec_id' , '$usuario')";
 
-		$reservar_producto = mysqli_query($conexion, $sql);
+		$reservar_producto = mysqli_query($conexion, $sql); 
+		$reservar_producto = mysqli_query($conexion, $insertar_reserva);
 
 		header('location: recursos.php');
 ?>

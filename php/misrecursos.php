@@ -75,7 +75,7 @@
 									//echo $fila[0]
 								echo "<table border>";
 									echo "<tr>";
-										echo "<td colspan='2'>" . $fila[0] . "----" . $fila_rec[1] . "</td>";
+										echo "<td colspan='2'>" . $fila_rec[1] . "</td>";
 									echo "</tr>";
 									echo "<tr>";
 										echo "<td rowspan='3'><img class='img_recu' src='../img/".$fila_rec[2]."'></td>";

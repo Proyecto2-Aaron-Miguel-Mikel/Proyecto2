@@ -74,7 +74,6 @@
 		<ul class="topnav">	
 			<li class="li"><a href="#">Administrar recursos</a></li>
 			<li class="li"><a href="administrador_reserva.php">Administrar reservas</a></li>
-			<li class="li"><a href="administrador_stats.php">Estadísticas</a></li>
 		</ul>
 	</nav>
 <?php

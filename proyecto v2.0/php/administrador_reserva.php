@@ -67,7 +67,6 @@
 	<ul class="topnav">	
 		<li class="li"><a href="administrador_recursos.php">Administrar recursos</a></li>
 		<li class="li"><a href="#">Adiministrar reservas</a></li>
-		<li class="li"><a href="administrador_stats.php">Estadísticas</a></li>
 	</ul>
 </nav>
 <?php
@@ -104,6 +103,7 @@ Tipo de recurso:
 <br/>
 <?php
 	if (mysqli_num_rows($reservas)>0) { 
+		echo "Número de reservas: " . mysqli_num_rows($reservas) . "<br/><br/>";
 						while($reserva	=	mysqli_fetch_array($reservas)){
 							echo "<div class='content_rec'>";
 								echo "<table border>";
@@ -133,6 +133,7 @@ Tipo de recurso:
 <br/>
 <?php
 	if (mysqli_num_rows($reservas1)>0) { 
+		echo "Número de reservas: " . mysqli_num_rows($reservas1) . "<br/><br/>";
 						while($reserva1	=	mysqli_fetch_array($reservas1)){
 							echo "<div class='content_rec'>";
 								echo "<table border>";

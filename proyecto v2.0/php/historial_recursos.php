@@ -53,21 +53,18 @@
 	<title>Recursos</title>
 </head>
 <body>
-		<div class="header">
+	<div class="header">
 			<div class="logo">
 				<a href="#"></a>
 			</div>
 			<div class="profile">
 			<p class="welcome">Hola bienvenido, <br /><b>
-			<?php echo $usu_nickname; ?></b><br/>
+			<?php echo $usu_nickname; ?></b></p>
+			</div>
 			
-				
-				<div class="logout">
-					<a href="logout.proc.php" onclick="return logout();"><img class="img_logout" src="../img/logout_small.png" alt="Cerrar sesión">
-					</a>
-				</div>
-			</p>
-		</div>
+			<h1 align="center">Gestión de recursos</h1>
+
+	</div>
 <nav>
 	<ul class="topnav">	
 		<li class="li"><a href="recursos.php">Recursos</a></li>
@@ -75,6 +72,7 @@
 		<li class="li"><a href="#">Historial de recursos</a></li>
 	</ul>
 </nav>
+
 <?php
 if(mysqli_num_rows($finalizados)>0 && mysqli_num_rows($tipos)>0){
 	?>
@@ -90,8 +88,11 @@ Tipo de recurso:
 	</select>
 	<input type="submit" name="enviar" value="Filtrar">
 </form>
+<br/>
+<br/>
 <h1>Historial de recursos</h1>
 <br/>
+
 <?php
 	if(mysqli_num_rows($finalizados)>0){
 		

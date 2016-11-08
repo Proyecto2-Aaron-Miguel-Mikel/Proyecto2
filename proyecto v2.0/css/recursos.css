@@ -18,7 +18,7 @@ body {
 .logo {
 	background-image: url("../img/banner_opt.jpg");
 	height: 100%;
-	width: 16.25%;
+	width: 11.75%;
 	border-right: solid 1px black;
 	float: left;
 }
@@ -60,11 +60,7 @@ nav ul.topnav li a {
 /* Change background color of links on hover */
 nav ul.topnav li a:hover {background-color: #555; color: white;}
 
-/* BOTON LOGOUT */
-.img_logout{
-      width: 2%;
-       margin-left: 70%
-}
+
 /*APARTADO MIS RECURSOS*/
 
 .content_rec{
@@ -72,9 +68,12 @@ nav ul.topnav li a:hover {background-color: #555; color: white;}
     margin-bottom: 2%;
     text-align:center;
     width: 75%;
-    background-color:#A9A9A9;
+    background-color:gray;
     margin-left: 10%;
 }
 .content_rec table{
 	width: 100%;
+}
+.formtipo{
+    margin-top: 5%;    
 }

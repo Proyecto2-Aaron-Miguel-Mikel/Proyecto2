@@ -67,7 +67,7 @@
 			<?php echo $usu_nickname; ?></b></p>
 			</div>
 			
-			<h1>Reserva tus recursos</h1>
+			<h1 align="center">Gestión de recursos</h1>
 
 	</div>
 	<nav>

@@ -55,21 +55,18 @@
 	<title>Recursos</title>
 </head>
 <body>
-		<div class="header">
+	<div class="header">
 			<div class="logo">
 				<a href="#"></a>
 			</div>
 			<div class="profile">
 			<p class="welcome">Hola bienvenido, <br /><b>
-			<?php echo $usu_nickname; ?></b><br/>
-			
-				
-				<div class="logout">
-					<a href="logout.proc.php" onclick="return logout();"><img class="img_logout" src="../img/logout_small.png" alt="Cerrar sesión">
-					</a>
-				</div>
-			</p>
+			<?php echo $usu_nickname; ?></b></p>
 			</div>
+			
+			<h1 align="center">Gestión de recursos</h1>
+
+	</div>
 	<nav>
 		<ul class="topnav">	
 			<li class="li"><a href="#">Recursos</a></li>

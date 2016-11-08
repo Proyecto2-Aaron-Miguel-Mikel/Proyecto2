@@ -1,4 +1,9 @@
 <?php
+		//Comprobamos si el usuario esta conectado
+		session_start();
+		if(!isset($_SESSION["usu_id"])) {
+			header("location:../index.php?nolog=2");
+		}
 		//realizamos la conexión
 		$conexion = mysqli_connect('localhost', 'root', '', 'bd_proyecto2');
 
@@ -12,7 +17,7 @@
 		    exit;
 		}
 
-		session_start();
+		//session_start();
 		$mysqli = new mysqli("localhost", "root", "", "bd_proyecto2");
 		$con =	"SELECT * FROM `tbl_usuario` WHERE `usu_id` = '". $_SESSION["usu_id"] ."'";
 		//echo $con;

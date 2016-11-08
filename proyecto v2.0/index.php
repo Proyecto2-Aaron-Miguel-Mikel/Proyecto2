@@ -40,8 +40,31 @@
 		
 	<?php
 	extract($_GET);
+		//En caso que exista la variable nolog, significa que ha habido un error de login o el usuario ha intentado entrar en una página directamente
 		if (isset($nolog)) 
 		{
+			switch ($nolog) {
+				case '1':
+					?>
+					<div class="login_failed">
+						<p class="user_failed">
+							Upps! parece que tu usuario y/o contraseña no son correctos
+						</p>
+					</div>
+				<?php
+					break;
+				case '2':
+				?>
+				<div class="login_failed">
+						<p class="user_failed">
+							¡Necesita estar registrado!
+						</p>
+					</div>
+				<?php
+				default:
+					# code...
+					break;
+			}
    			if($nolog==1){
    				?>
    				<div class="login_failed">

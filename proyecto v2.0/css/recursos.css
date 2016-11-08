@@ -77,3 +77,8 @@ nav ul.topnav li a:hover {background-color: #555; color: white;}
 .formtipo{
     margin-top: 5%;    
 }
+/*LOGOUT*/
+.img_logout{
+      width: 2%;
+       margin-left: 75%
+}

@@ -1,4 +1,8 @@
 <?php
+		session_start();
+		if(!isset($_SESSION["usu_id"])) {
+			header("location:../index.php?nolog=2");
+		}
 		//realizamos la conexión
 		$conexion = mysqli_connect('localhost', 'root', '', 'bd_proyecto2');
 		//le decimos a la conexión que los datos los devuelva diréctamente en utf8, así no hay que usar htmlentities

@@ -1,4 +1,10 @@
 <?php
+	//Comprobamos que el usuario esta logueado
+		session_start();
+		if(!isset($_SESSION["usu_id"])) 
+		{
+			header("location:../index.php?nolog=2");
+		}
 	//Cogemos la ID del recurso que queremos liberar
 	$id_recu	=	$_GET['recu_id'];
 	//Cogemos la ID del reserva

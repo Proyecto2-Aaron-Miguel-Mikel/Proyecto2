@@ -1,3 +1,9 @@
+<?php 
+		session_start();
+		if(!isset($_SESSION["usu_id"])) {
+			header("location:../index.php?nolog=2");
+		}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,7 +36,7 @@
 	</head>
 	<body>
 	<?php
-	session_start();
+
 	$mysqli = new mysqli("localhost", "root", "", "bd_proyecto2");
 	$acentos = mysqli_query($mysqli, "SET NAMES 'utf8'");
 

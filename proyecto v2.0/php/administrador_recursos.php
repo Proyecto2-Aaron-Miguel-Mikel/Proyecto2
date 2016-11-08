@@ -1,4 +1,9 @@
 <?php
+	//Comprobamos que el usuario esta logueado
+	session_start();
+		if(!isset($_SESSION["usu_id"])) {
+			header("location:../index.php?nolog=2");
+		}
 		//realizamos la conexión
 		$conexion = mysqli_connect('localhost', 'root', '', 'bd_proyecto2');
 
@@ -11,8 +16,6 @@
 		    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
 		    exit;
 		}
-
-		session_start();
 		$mysqli = new mysqli("localhost", "root", "", "bd_proyecto2");
 		//Cogemos el nombre de usuario y la imagen de forma dinámica en la BD
 		$con =	"SELECT * FROM `tbl_usuario` WHERE `usu_id` = '". $_SESSION["usu_id"] ."'";

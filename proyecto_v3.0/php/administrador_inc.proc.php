@@ -18,7 +18,7 @@
 		$fecha = date("Y-m-d H:i:s");
 
 		$sql_estado = " UPDATE tbl_recurso SET rec_estado='disponible' WHERE rec_id='$rec_id'";
-		$sql_incidencia = "UPDATE tbl_incidencia SET inc_fechafinal='$fecha'";
+		$sql_incidencia = "UPDATE tbl_incidencia SET inc_fechafinal='$fecha' WHERE rec_id='$rec_id'";
 
 
 	$estado=mysqli_query($conexion, $sql_estado);

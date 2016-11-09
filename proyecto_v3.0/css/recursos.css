@@ -37,10 +37,6 @@ nav {
 
 }
 
-h2 {
-    text-align: center;
-}
-
 /* Remove margins and padding from the list, and add a black background color */
 nav ul.topnav {
     list-style-type: none;
@@ -81,7 +77,8 @@ nav ul.topnav li a:hover {background-color: #555; color: white;}
 .formtipo{
     margin-top: 5%;    
 }
-
-.invisible {
-    display: none;
+/*LOGOUT*/
+.img_logout{
+      width: 2%;
+       margin-left: 75%
 }

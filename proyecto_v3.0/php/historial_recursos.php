@@ -50,7 +50,20 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/recursos.css">
-	<title>Recursos</title>
+	<title>Historial Recursos</title>
+
+<script type="text/javascript">
+		function logout()
+		{
+			var login_respuesta = confirm("¿Está seguro que desea cerrar la sesión?");
+			if(login_respuesta){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+	</script>
 </head>
 <body>
 	<div class="header">
@@ -59,12 +72,14 @@
 			</div>
 			<div class="profile">
 			<p class="welcome">Hola bienvenido, <br /><b>
-			<?php echo $usu_nickname; ?></b></p>
+			<?php echo $usu_nickname; ?></b>
+			<div class="logout">
+				<a href="logout.proc.php" onclick="return logout();">
+					<img class="img_logout" src="../img/logout_small.png" alt="Cerrar sesión">
+				</a>
 			</div>
-			
-			<h1 align="center">Gestión de recursos</h1>
-
-	</div>
+			</p>
+			</div>
 <nav>
 	<ul class="topnav">	
 		<li class="li"><a href="recursos.php">Recursos</a></li>

@@ -57,20 +57,18 @@
 			<div class="logo">
 				<a href="#"></a>
 			</div>
+			<h1 align="center">Gestión de recursos</h1>
 			<div class="profile">
 			<p class="welcome">Hola bienvenido, <br /><b>
 			<?php echo $usu_nickname; ?></b>
+			
+			</p>
+			</div>
 			<div class="logout">
 				<a href="logout.proc.php" onclick="return logout();">
 					<img class="img_logout" src="../img/logout_small.png" alt="Cerrar sesión">
 				</a>
 			</div>
-
-			</p>
-			</div>
-			
-			<h1 align="center">Gestión de recursos</h1>
-
 		</div>
 		<nav>
 			<ul class="topnav">	
@@ -80,10 +78,11 @@
 			</ul>
 		</nav>
 		<div class="container">
-			<p class="reserved"> Tus recursos reservados són:</p> <br/>
+			<p class="reserved"> <h1> Recursos reservados </h1> </p>
+		<br/>
 			
 				
-			</div>
+			
 			<?php
 				//Seleccionamos todas las reservas que tiene asignado nuestro usuario
 				$con 	=	"SELECT * FROM `tbl_reserva` WHERE `res_usuarioid` = " . $_SESSION["usu_id"] . " AND `res_fechafinal` IS NULL";

@@ -73,26 +73,26 @@
 			<div class="logo">
 				<a href="#"></a>
 			</div>
+			<h1 align="center">Gestión de recursos</h1>
 			<div class="profile">
 			<p class="welcome">Hola bienvenido, <br /><b>
 			<?php echo $usu_nickname; ?></b>
+			
+			</p>
+			</div>
 			<div class="logout">
 				<a href="logout.proc.php" onclick="return logout();">
 					<img class="img_logout" src="../img/logout_small.png" alt="Cerrar sesión">
 				</a>
 			</div>
-			</p>
-			</div>
-			
-			<h1 align="center">Gestión de recursos</h1>
-
-	</div>
+		</div>
 <nav>
 	<ul class="topnav">	
 		<li class="li"><a href="administrador_recursos.php">Administrar recursos</a></li>
 		<li class="li"><a href="#">Adiministrar reservas</a></li>
 	</ul>
 </nav>
+<div class="container">
 <?php
 if(mysqli_num_rows($tipos)>0){
 	?>
@@ -185,6 +185,6 @@ Tipo de recurso:
 						echo "No se ha realizado ninguna reserva";
 					}
 	?>
-
+</div>
 </body>
 </html>

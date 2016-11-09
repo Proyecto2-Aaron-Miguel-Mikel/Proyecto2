@@ -1,4 +1,5 @@
 <?php
+
 		//realizamos la conexión
 		$conexion = mysqli_connect('localhost', 'root', '', 'bd_proyecto2');
 
@@ -84,16 +85,19 @@
 			<div class="logo">
 				<a href="#"></a>
 			</div>
+			<h1 align="center">Gestión de recursos</h1>
 			<div class="profile">
 			<p class="welcome">Hola bienvenido, <br /><b>
 			<?php echo $usu_nickname; ?></b>
+			
+			</p>
+			</div>
 			<div class="logout">
 				<a href="logout.proc.php" onclick="return logout();">
 					<img class="img_logout" src="../img/logout_small.png" alt="Cerrar sesión">
 				</a>
 			</div>
-			</p>
-			</div>
+		</div>
 	<nav>
 		<ul class="topnav">	
 			<li class="li"><a href="#">Recursos</a></li>
@@ -101,97 +105,99 @@
 			<li class="li"><a href="historial_recursos.php">Historial de recursos</a></li>
 		</ul>
 	</nav>
-<?php
-if(mysqli_num_rows($tipos)>0){
-	?>
-<form action="recursos.php" method="get" class="formtipo">
-	Tipo de recurso:
-	<select name="tr_id">
-		<option value="0">-- Elegir tipo --</option>
-		<?php
-				while($tipo=mysqli_fetch_array($tipos)){
-					echo "<option value=" . $tipo['tr_id'] . ">" . $tipo['tr_nombre'] . "</option>";
-				}
-			?>
-	</select>
-	<input type="submit" name="enviar" value="Filtrar">
-</form>
-<br/><br/>
-<h1>Recursos Disponibles</h1>
-<br/>
-<?php
-	}
-	if(mysqli_num_rows($recursos)>0){
-		
-							while($recurso	=	mysqli_fetch_array($recursos)){
-								echo "<div class='content_rec'>";
-									//echo $fila[0]
-								echo "<table border>";
-									echo "<tr>";
-										echo "<td colspan='2'>" . $recurso['rec_nombre'] . "</td>";
-									echo "</tr>";
-									echo "<tr>";
-										echo "<td rowspan='3'><img class='img_recu' src='../img/recursos/".$recurso['rec_foto']."' width='100'></td>";
-										echo "<td>".$recurso['rec_descripcion']."</td>";
-									echo "</tr>";
-									echo "<tr>";
-										echo "<td>Estado: " .$recurso['rec_estado']. "</td>";
-									echo "</tr>";
-									echo "<tr>";
-													
-											echo "<td colspan='2'> <a href='recursos.proc.php?rec_id=".$recurso['rec_id']."' onclick='return destroy();'>RESERVAR RECURSO </a></td>";
-										
-										echo "</tr>"; 
-										
-													
-								echo "</table>";
-								echo "</div>";
-								echo "</br>";
- 
-
-							}
-
-		} else {
-			echo "No hay recursos disponibles";
+<div class="container">
+	
+	<?php
+	if(mysqli_num_rows($tipos)>0){
+		?>
+	<form action="recursos.php" method="get" class="formtipo">
+		Tipo de recurso:
+		<select name="tr_id">
+			<option value="0">-- Elegir tipo --</option>
+			<?php
+					while($tipo=mysqli_fetch_array($tipos)){
+						echo "<option value=" . $tipo['tr_id'] . ">" . $tipo['tr_nombre'] . "</option>";
+					}
+				?>
+		</select>
+		<input type="submit" name="enviar" value="Filtrar">
+	</form>
+	<br/><br/>
+	<h1>Recursos Disponibles</h1>
+	<br/>
+	<?php
 		}
+		if(mysqli_num_rows($recursos)>0){
+			
+								while($recurso	=	mysqli_fetch_array($recursos)){
+									echo "<div class='content_rec'>";
+										//echo $fila[0]
+									echo "<table border>";
+										echo "<tr>";
+											echo "<td colspan='2'>" . $recurso['rec_nombre'] . "</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<td rowspan='3'><img class='img_recu' src='../img/recursos/".$recurso['rec_foto']."' width='100'></td>";
+											echo "<td>".$recurso['rec_descripcion']."</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<td>Estado: " .$recurso['rec_estado']. "</td>";
+										echo "</tr>";
+										echo "<tr>";
+														
+												echo "<td colspan='2'> <a href='recursos.proc.php?rec_id=".$recurso['rec_id']."' onclick='return destroy();'>RESERVAR RECURSO </a></td>";
+											
+											echo "</tr>"; 
+											
+														
+									echo "</table>";
+									echo "</div>";
+									echo "</br>";
+	 
 
-	?>
+								}
 
-<br/><br/>
-<h1>Recursos en uso</h1>
-<br/>
-<?php
-	if(mysqli_num_rows($recursos1)>0){
-		
-							while($recurso1	=	mysqli_fetch_array($recursos1)){
-								echo "<div class='content_rec'>";
-									//echo $fila[0]
-								echo "<table border>";
-									echo "<tr>";
-										echo "<td colspan='2'>" . $recurso1['rec_nombre'] . "</td>";
-									echo "</tr>";
-									echo "<tr>";
-										echo "<td rowspan='3'><img class='img_recu' src='../img/recursos/".$recurso1['rec_foto']."' width='100'></td>";
-										echo "<td>".$recurso1['rec_descripcion']."</td>";
-									echo "</tr>";
-									echo "<tr>";
-										echo "<td>Estado: " .$recurso1['rec_estado']. "</td>";
-									echo "</tr>";
-									
-										//echo $fila[2];
-													
-								echo "</table>";
-								echo "</div>";
-								echo "</br>";
- 
+			} else {
+				echo "No hay recursos disponibles";
+			}
 
-							}
+		?>
 
-		} else {
-			echo "No hay recursos disponibles";
-		}
+	<br/><br/>
+	<h1>Recursos en uso</h1>
+	<br/>
+	<?php
+		if(mysqli_num_rows($recursos1)>0){
+			
+								while($recurso1	=	mysqli_fetch_array($recursos1)){
+									echo "<div class='content_rec'>";
+										//echo $fila[0]
+									echo "<table border>";
+										echo "<tr>";
+											echo "<td colspan='2'>" . $recurso1['rec_nombre'] . "</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<td rowspan='3'><img class='img_recu' src='../img/recursos/".$recurso1['rec_foto']."' width='100'></td>";
+											echo "<td>".$recurso1['rec_descripcion']."</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<td>Estado: " .$recurso1['rec_estado']. "</td>";
+										echo "</tr>";
+										
+											//echo $fila[2];
+														
+									echo "</table>";
+									echo "</div>";
+									echo "</br>";
+	 
 
-	?>
+								}
 
+			} else {
+				echo "No hay recursos disponibles";
+			}
+
+		?>
+</div>
 </body>
 </html>

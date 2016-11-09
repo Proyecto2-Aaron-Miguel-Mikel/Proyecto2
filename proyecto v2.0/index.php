@@ -62,18 +62,9 @@
 					</div>
 				<?php
 				default:
-					# code...
+					//En caso que el usuario envie cualquier variable por URL, que salga del Switch sin que haga nada
 					break;
 			}
-   			if($nolog==1){
-   				?>
-   				<div class="login_failed">
-					<p class="user_failed">
-						Upps! parece que tu usuario y/o contraseña no son correctos
-					</p>
-				</div>
-   				<?php
-   			}
 		}
 	?>
 	<form name="login" action="php/login.proc.php" method="POST" onsubmit="return validar();" >

@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+		if(!isset($_SESSION["usu_id"])) {
+			header("location:../index.php?nolog=2");
+		}
+ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -32,7 +38,7 @@
 	</head>
 	<body>
 	<?php
-	session_start();
+	//session_start();
 	$mysqli = new mysqli("localhost", "root", "", "bd_proyecto2");
 	$acentos = mysqli_query($mysqli, "SET NAMES 'utf8'");
 
@@ -53,16 +59,19 @@
 			<div class="logo">
 				<a href="#"></a>
 			</div>
+			<h1 align="center">Gestión de recursos</h1>
 			<div class="profile">
 			<p class="welcome">Hola bienvenido, <br /><b>
 			<?php echo $usu_nickname; ?></b>
+			
+			</p>
+			</div>
 			<div class="logout">
 				<a href="logout.proc.php" onclick="return logout();">
 					<img class="img_logout" src="../img/logout_small.png" alt="Cerrar sesión">
 				</a>
 			</div>
-			</p>
-			</div>
+		</div>
 		<nav>
 			<ul class="topnav">	
 				<li class="li"><a href="recursos.php">Recursos</a></li>

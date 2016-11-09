@@ -1,0 +1,87 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	background-color: #EFEFEF;
+	width: 80%;
+	margin: 5% 10%;
+}
+ 
+.header {
+	height: 80px;
+	background-color: #A9A9A9;
+	border: solid 1px black;
+}
+
+.logo {
+	background-image: url("../img/banner_opt.jpg");
+	height: 100%;
+	width: 11.75%;
+	border-right: solid 1px black;
+	float: left;
+}
+.welcome{
+
+    position: relative;
+    margin-left: 85%;
+    width: 25%;
+}
+
+
+nav {
+    margin: 0;
+    padding: 0;
+    background-color: #DADADA;
+
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Remove margins and padding from the list, and add a black background color */
+nav ul.topnav {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+/* Float the list items side by side */
+nav ul.topnav li {float: left;  }
+
+/* Style the links inside the list items */
+nav ul.topnav li a {
+    display: inline-block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+nav ul.topnav li a:hover {background-color: #555; color: white;}
+
+
+/*APARTADO MIS RECURSOS*/
+
+.content_rec{
+	margin-top: 1%;
+    margin-bottom: 2%;
+    text-align:center;
+    width: 75%;
+    background-color:gray;
+    margin-left: 10%;
+}
+.content_rec table{
+	width: 100%;
+}
+.formtipo{
+    margin-top: 5%;    
+}
+
+.invisible {
+    display: none;
+}
